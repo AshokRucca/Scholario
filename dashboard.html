@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Scholario</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/pages/dashboard.css">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="dashboard-body bg-main">
+
+    <!-- Sidebar -->
+    <aside class="sidebar glass-card">
+        <div class="sidebar-header">
+            <a href="index.html" class="logo flex items-center gap-sm">
+                <i class="ph ph-graduation-cap text-primary" style="font-size: 2rem;"></i>
+                <span class="logo-text text-primary" style="font-family: var(--font-heading); font-weight: 700; font-size: 1.25rem;">Scholario</span>
+            </a>
+            <button class="close-sidebar-btn md-hidden">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link active">
+                        <i class="ph ph-squares-four"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="eligibility.html" class="nav-link">
+                        <i class="ph ph-check-circle"></i> Eligibility Checker
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="scholarships.html" class="nav-link">
+                        <i class="ph ph-magnifying-glass"></i> Scholarships
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="applications.html" class="nav-link">
+                        <i class="ph ph-file-text"></i> My Applications
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link">
+                        <i class="ph ph-user"></i> Profile
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="logout()" class="nav-link text-danger">
+                <i class="ph ph-sign-out"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Topbar -->
+        <header class="topbar flex justify-between items-center glass-card">
+            <div class="flex items-center gap-md">
+                <button class="toggle-sidebar-btn">
+                    <i class="ph ph-list"></i>
+                </button>
+                <h2 style="font-size: 1.5rem; margin: 0;">Welcome back, John!</h2>
+            </div>
+            
+            <div class="topbar-actions flex items-center gap-md">
+                <button class="icon-btn notification-btn relative">
+                    <i class="ph ph-bell text-primary" style="font-size: 1.5rem;"></i>
+                    <span class="notification-dot animate-pulse"></span>
+                </button>
+                <div class="user-profile flex items-center gap-sm">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=4F46E5&color=fff" alt="User" class="avatar">
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Widgets -->
+        <div class="dashboard-grid">
+            <!-- Overview Cards -->
+            <div class="overview-cards grid grid-cols-4 md-grid-cols-2 sm-grid-cols-1 gap-md col-span-full">
+                <div class="card stat-card animate-fade-in-up delay-100">
+                    <div class="stat-icon bg-primary-light">
+                        <i class="ph ph-book-open text-primary"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>500+</h3>
+                        <p>Total Scholarships</p>
+                    </div>
+                </div>
+                <div class="card stat-card animate-fade-in-up delay-200">
+                    <div class="stat-icon bg-success-light">
+                        <i class="ph ph-check-square-offset text-success"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>12</h3>
+                        <p>Eligible Scholarships</p>
+                    </div>
+                </div>
+                <div class="card stat-card animate-fade-in-up delay-300">
+                    <div class="stat-icon bg-warning-light">
+                        <i class="ph ph-paper-plane-tilt text-warning"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>3</h3>
+                        <p>Applications Submitted</p>
+                    </div>
+                </div>
+                <div class="card stat-card animate-fade-in-up delay-400">
+                    <div class="stat-icon bg-accent-light">
+                        <i class="ph ph-hourglass-high text-accent"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>2</h3>
+                        <p>Pending Reviews</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="col-span-8 md-col-span-12 flex flex-col gap-md">
+                <!-- Eligibility Widget -->
+                <div class="card eligibility-widget animate-fade-in-up delay-200" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white;">
+                    <div class="flex justify-between items-center md-flex-col gap-md">
+                        <div>
+                            <h3 style="color: white; margin-bottom: 0.5rem;">Eligibility Status: <span class="badge badge-success" style="background: rgba(255,255,255,0.2); color: white;">Verified</span></h3>
+                            <p style="color: rgba(255,255,255,0.8); margin: 0;">Your profile is 80% complete. Add your caste certificate to unlock 5 more scholarships.</p>
+                        </div>
+                        <a href="eligibility.html" class="btn" style="background: white; color: var(--primary);">Update Profile</a>
+                    </div>
+                </div>
+
+                <!-- Recent Activities Timeline -->
+                <div class="card animate-fade-in-up delay-300">
+                    <div class="card-header flex justify-between items-center" style="margin-bottom: 1.5rem;">
+                        <h3>Recent Activities</h3>
+                        <a href="#" style="font-size: 0.875rem;">View All</a>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-icon bg-success-light text-success"><i class="ph ph-check"></i></div>
+                            <div class="timeline-content">
+                                <h4>Application Approved</h4>
+                                <p>Your application for 'National Merit Scholarship' was approved.</p>
+                                <span class="time">2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon bg-primary-light text-primary"><i class="ph ph-paper-plane-tilt"></i></div>
+                            <div class="timeline-content">
+                                <h4>Application Submitted</h4>
+                                <p>You submitted an application for 'State NGO Fund'.</p>
+                                <span class="time">5 days ago</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon bg-warning-light text-warning"><i class="ph ph-file-text"></i></div>
+                            <div class="timeline-content">
+                                <h4>Profile Updated</h4>
+                                <p>You uploaded your Income Certificate.</p>
+                                <span class="time">1 week ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Content Area -->
+            <div class="col-span-4 md-col-span-12 flex flex-col gap-md">
+                <!-- Recommended Scholarships -->
+                <div class="card animate-fade-in-up delay-400">
+                    <div class="card-header flex justify-between items-center" style="margin-bottom: 1.5rem;">
+                        <h3>Recommended</h3>
+                        <a href="scholarships.html" style="font-size: 0.875rem;">See All</a>
+                    </div>
+                    <div class="recommendations list">
+                        <div class="rec-item flex gap-sm items-center" style="padding: 1rem 0; border-bottom: 1px solid var(--border-color);">
+                            <div class="rec-icon" style="width: 40px; height: 40px; border-radius: 8px; background: rgba(34,197,94,0.1); display: flex; align-items: center; justify-content: center;"><i class="ph ph-bank text-success" style="font-size: 1.5rem;"></i></div>
+                            <div>
+                                <h4 style="font-size: 0.95rem; margin-bottom: 0.2rem;">Post Matric Scholarship</h4>
+                                <p style="font-size: 0.8rem; margin: 0; color: var(--success);">100% Match</p>
+                            </div>
+                        </div>
+                        <div class="rec-item flex gap-sm items-center" style="padding: 1rem 0;">
+                            <div class="rec-icon" style="width: 40px; height: 40px; border-radius: 8px; background: rgba(6,182,212,0.1); display: flex; align-items: center; justify-content: center;"><i class="ph ph-briefcase text-accent" style="font-size: 1.5rem;"></i></div>
+                            <div>
+                                <h4 style="font-size: 0.95rem; margin-bottom: 0.2rem;">Tech Mahindra Fund</h4>
+                                <p style="font-size: 0.8rem; margin: 0; color: var(--success);">85% Match</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Application Progress Tracker -->
+                <div class="card animate-fade-in-up delay-500">
+                    <div class="card-header" style="margin-bottom: 1rem;">
+                        <h3>Active Application</h3>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem;">State NGO Fund</h4>
+                        <div class="progress-bar-bg" style="width: 100%; height: 8px; background: var(--border-color); border-radius: 4px; margin-bottom: 0.5rem;">
+                            <div class="progress-bar-fill" style="width: 60%; height: 100%; background: var(--warning); border-radius: 4px;"></div>
+                        </div>
+                        <div class="flex justify-between text-sm" style="font-size: 0.8rem; color: var(--text-secondary);">
+                            <span>Under Review</span>
+                            <span>60%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/pages/dashboard.js"></script>
+</body>
+</html>

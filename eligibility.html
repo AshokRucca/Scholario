@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eligibility Checker - Scholario</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/pages/dashboard.css"> <!-- Reuse sidebar styles -->
+    <link rel="stylesheet" href="css/pages/eligibility.css">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="dashboard-body bg-main">
+
+    <!-- Sidebar -->
+    <aside class="sidebar glass-card">
+        <div class="sidebar-header">
+            <a href="index.html" class="logo flex items-center gap-sm">
+                <i class="ph ph-graduation-cap text-primary" style="font-size: 2rem;"></i>
+                <span class="logo-text text-primary" style="font-family: var(--font-heading); font-weight: 700; font-size: 1.25rem;">Scholario</span>
+            </a>
+            <button class="close-sidebar-btn md-hidden">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="ph ph-squares-four"></i> Dashboard</a></li>
+                <li class="nav-item"><a href="eligibility.html" class="nav-link active"><i class="ph ph-check-circle"></i> Eligibility Checker</a></li>
+                <li class="nav-item"><a href="scholarships.html" class="nav-link"><i class="ph ph-magnifying-glass"></i> Scholarships</a></li>
+                <li class="nav-item"><a href="applications.html" class="nav-link"><i class="ph ph-file-text"></i> My Applications</a></li>
+                <li class="nav-item"><a href="profile.html" class="nav-link"><i class="ph ph-user"></i> Profile</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="logout()" class="nav-link text-danger"><i class="ph ph-sign-out"></i> Logout</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="topbar flex justify-between items-center glass-card">
+            <div class="flex items-center gap-md">
+                <button class="toggle-sidebar-btn"><i class="ph ph-list"></i></button>
+                <h2 style="font-size: 1.5rem; margin: 0;">Check Eligibility</h2>
+            </div>
+        </header>
+
+        <div class="wizard-container" style="padding: 2rem; max-width: 800px; margin: 0 auto;">
+            
+            <!-- Wizard Tracker -->
+            <div id="wizard-progress" class="wizard-progress animate-fade-in-up delay-100">
+                <div class="progress-steps flex justify-between relative">
+                    <div class="progress-line"></div>
+                    <div class="step active" data-step="1">
+                        <div class="step-circle"><i class="ph ph-user"></i></div>
+                        <span class="step-label">Personal</span>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-circle"><i class="ph ph-graduation-cap"></i></div>
+                        <span class="step-label">Academic</span>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-circle"><i class="ph ph-bank"></i></div>
+                        <span class="step-label">Financial</span>
+                    </div>
+                    <div class="step" data-step="4">
+                        <div class="step-circle"><i class="ph ph-users"></i></div>
+                        <span class="step-label">Category</span>
+                    </div>
+                    <div class="step" data-step="5">
+                        <div class="step-circle"><i class="ph ph-file-arrow-up"></i></div>
+                        <span class="step-label">Documents</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wizard Form Container -->
+            <div class="card wizard-card animate-fade-in-up delay-200">
+                <form id="eligibility-form">
+                    
+                    <!-- Step 1: Personal -->
+                    <div class="wizard-step active" id="step-1">
+                        <h3 style="margin-bottom: 1.5rem;">Personal Information</h3>
+                        <div class="grid grid-cols-2 sm-grid-cols-1 gap-md">
+                            <div class="form-group col-span-full">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-input" required value="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Gender</label>
+                                <select class="form-input" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="Male" selected>Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Date of Birth</label>
+                                <input type="date" class="form-input" required value="2000-01-01">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">State</label>
+                                <select class="form-input" required>
+                                    <option value="">Select State</option>
+                                    <option value="MH" selected>Maharashtra</option>
+                                    <option value="KA">Karnataka</option>
+                                    <option value="DL">Delhi</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">District</label>
+                                <input type="text" class="form-input" required value="Mumbai">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Academic -->
+                    <div class="wizard-step" id="step-2" style="display: none;">
+                        <h3 style="margin-bottom: 1.5rem;">Academic Details</h3>
+                        <div class="grid grid-cols-2 sm-grid-cols-1 gap-md">
+                            <div class="form-group col-span-full">
+                                <label class="form-label">Course</label>
+                                <select class="form-input" required>
+                                    <option value="">Select Course</option>
+                                    <option value="BTech">B.Tech / B.E</option>
+                                    <option value="BSc">B.Sc</option>
+                                    <option value="MBA">MBA</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-span-full">
+                                <label class="form-label">Institution Name</label>
+                                <input type="text" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Current Year</label>
+                                <select class="form-input" required>
+                                    <option value="1">1st Year</option>
+                                    <option value="2">2nd Year</option>
+                                    <option value="3">3rd Year</option>
+                                    <option value="4">4th Year</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Previous Year Percentage / CGPA</label>
+                                <input type="number" class="form-input" step="0.1" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Financial -->
+                    <div class="wizard-step" id="step-3" style="display: none;">
+                        <h3 style="margin-bottom: 1.5rem;">Financial Information</h3>
+                        <div class="grid grid-cols-1 gap-md">
+                            <div class="form-group">
+                                <label class="form-label">Family Annual Income (₹)</label>
+                                <input type="number" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Income Certificate Available?</label>
+                                <div class="flex gap-md" style="margin-top: 0.5rem;">
+                                    <label class="flex items-center gap-sm"><input type="radio" name="income_cert" value="yes" required> Yes</label>
+                                    <label class="flex items-center gap-sm"><input type="radio" name="income_cert" value="no"> No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Category -->
+                    <div class="wizard-step" id="step-4" style="display: none;">
+                        <h3 style="margin-bottom: 1.5rem;">Category Details</h3>
+                        <div class="grid grid-cols-2 gap-md category-grid">
+                            <label class="category-card"><input type="radio" name="category" value="General" required> <span>General</span></label>
+                            <label class="category-card"><input type="radio" name="category" value="OBC"> <span>OBC</span></label>
+                            <label class="category-card"><input type="radio" name="category" value="SC"> <span>SC</span></label>
+                            <label class="category-card"><input type="radio" name="category" value="ST"> <span>ST</span></label>
+                            <label class="category-card"><input type="radio" name="category" value="EWS"> <span>EWS</span></label>
+                            <label class="category-card"><input type="radio" name="category" value="Minority"> <span>Minority</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Documents -->
+                    <div class="wizard-step" id="step-5" style="display: none;">
+                        <h3 style="margin-bottom: 1.5rem;">Document Upload (Optional)</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Upload documents to verify your profile instantly.</p>
+                        
+                        <div class="grid grid-cols-2 sm-grid-cols-1 gap-md">
+                            <div class="upload-zone" id="upload-aadhaar">
+                                <i class="ph ph-upload-simple"></i>
+                                <span>Aadhaar Card</span>
+                                <input type="file" hidden accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="upload-zone" id="upload-income">
+                                <i class="ph ph-upload-simple"></i>
+                                <span>Income Certificate</span>
+                                <input type="file" hidden accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="upload-zone" id="upload-marks">
+                                <i class="ph ph-upload-simple"></i>
+                                <span>Marks Memo</span>
+                                <input type="file" hidden accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="upload-zone" id="upload-caste">
+                                <i class="ph ph-upload-simple"></i>
+                                <span>Caste Cert (Optional)</span>
+                                <input type="file" hidden accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="wizard-actions flex justify-between" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                        <button type="button" class="btn btn-secondary" id="btn-prev" style="display: none;">Back</button>
+                        <div style="flex-grow: 1;"></div>
+                        <button type="button" class="btn btn-primary" id="btn-next">Next Step</button>
+                        <button type="submit" class="btn btn-primary" id="btn-submit" style="display: none;">Check Eligibility</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Results View (Hidden by default) -->
+            <div id="results-view" style="display: none;" class="animate-fade-in-up">
+                <!-- Result will be injected here via JS -->
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/pages/dashboard.js"></script>
+    <script src="js/pages/eligibility.js"></script>
+</body>
+</html>

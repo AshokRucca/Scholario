@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Eligibility & Discovery Platform</title>
+    <meta name="description"
+        content="Find and apply for government, NGO, and industry scholarships you qualify for with our easy eligibility checker.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/pages/landing.css">
+
+    <!-- Icons (Phosphor Icons for modern look) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar glass-card">
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo flex items-center gap-sm">
+                <i class="ph ph-graduation-cap text-primary" style="font-size: 2rem;"></i>
+                <span class="logo-text text-primary"
+                    style="font-family: var(--font-heading); font-weight: 700; font-size: 1.25rem;">Scholario</span>
+            </a>
+
+            <ul class="nav-links flex items-center gap-lg">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#stats">Impact</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+
+            <div class="nav-actions flex items-center gap-md">
+                <a href="auth.html" class="btn btn-outline">Log In</a>
+                <a href="auth.html#signup" class="btn btn-primary">Sign Up</a>
+            </div>
+
+            <button class="mobile-menu-btn" style="display: none;">
+                <i class="ph ph-list" style="font-size: 1.5rem;"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero section-padding hero-modern-bg">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1 animate-float"></div>
+            <div class="shape shape-2 animate-float delay-300"></div>
+            <div class="shape shape-3 animate-float delay-500"></div>
+        </div>
+        <div class="container flex flex-col items-center justify-center text-center relative z-10" style="min-height: 60vh;">
+            <div class="hero-content reveal" style="max-width: 800px;">
+                <div class="badge badge-primary animate-fade-in-up" style="margin-bottom: 1.5rem; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px);">
+                    🚀 Discover your future
+                </div>
+                <h1 class="animate-fade-in-up delay-100" style="font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem;">Find Scholarships You <br><span class="text-gradient">Qualify For</span></h1>
+                <p class="animate-fade-in-up delay-200"
+                    style="font-size: 1.25rem; margin-bottom: 2.5rem; color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Check your eligibility instantly and browse thousands of scholarships from Government, NGOs, Foundations, and Private Industries.
+                </p>
+                <div class="hero-btns flex justify-center gap-md animate-fade-in-up delay-300">
+                    <a href="eligibility.html" id="check-eligibility-btn" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.125rem;">
+                        Check Eligibility <i class="ph ph-arrow-right"></i>
+                    </a>
+                    <a href="scholarships.html" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1.125rem;">
+                        Explore Scholarships
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features section-padding" style="background: white;">
+        <div class="container">
+            <div class="text-center reveal" style="max-width: 600px; margin: 0 auto 3rem auto;">
+                <h2 style="margin-bottom: 1rem;">Why Choose Us</h2>
+                <p>We simplify the scholarship search process so you can focus on your studies.</p>
+            </div>
+
+            <div class="grid grid-cols-3 md-grid-cols-2 sm-grid-cols-1 gap-lg">
+                <div class="card text-center reveal delay-100">
+                    <div class="icon-wrapper" style="background: rgba(79,70,229,0.1); color: var(--primary);">
+                        <i class="ph ph-check-square-offset"></i>
+                    </div>
+                    <h3>Eligibility Verification</h3>
+                    <p>Multi-step process to instantly check your eligibility against thousands of scholarships.</p>
+                </div>
+
+                <div class="card text-center reveal delay-200">
+                    <div class="icon-wrapper" style="background: rgba(34,197,94,0.1); color: var(--success);">
+                        <i class="ph ph-bank"></i>
+                    </div>
+                    <h3>Govt & NGO Funds</h3>
+                    <p>Access authentic scholarships directly from Government portals and certified NGOs.</p>
+                </div>
+
+                <div class="card text-center reveal delay-300">
+                    <div class="icon-wrapper" style="background: rgba(6,182,212,0.1); color: var(--accent);">
+                        <i class="ph ph-briefcase"></i>
+                    </div>
+                    <h3>Industry Sponsored</h3>
+                    <p>Exclusive scholarships from top tech companies and private foundations.</p>
+                </div>
+
+                <div class="card text-center reveal delay-100">
+                    <div class="icon-wrapper" style="background: rgba(245,158,11,0.1); color: var(--warning);">
+                        <i class="ph ph-chart-line-up"></i>
+                    </div>
+                    <h3>Application Tracking</h3>
+                    <p>Monitor all your applications in real-time from a centralized dashboard.</p>
+                </div>
+
+                <div class="card text-center reveal delay-200">
+                    <div class="icon-wrapper" style="background: rgba(239,68,68,0.1); color: var(--danger);">
+                        <i class="ph ph-shield-check"></i>
+                    </div>
+                    <h3>Secure Profile</h3>
+                    <p>Your data and documents are encrypted and managed with bank-level security.</p>
+                </div>
+
+                <div class="card text-center reveal delay-300">
+                    <div class="icon-wrapper" style="background: rgba(99,102,241,0.1); color: var(--secondary);">
+                        <i class="ph ph-bell-ringing"></i>
+                    </div>
+                    <h3>Smart Alerts</h3>
+                    <p>Get notified when new scholarships matching your profile are announced.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="stats section-padding"
+        style="background: var(--primary); color: white; position: relative; overflow: hidden;">
+        <div class="container grid grid-cols-4 md-grid-cols-2 sm-grid-cols-1 gap-lg text-center relative z-10">
+            <div class="stat-item reveal">
+                <div class="stat-number" data-target="5000">0</div>
+                <div class="stat-label">Scholarships Available</div>
+            </div>
+            <div class="stat-item reveal delay-100">
+                <div class="stat-number" data-target="120">0</div>
+                <div class="stat-label">Students Helped (k)</div>
+            </div>
+            <div class="stat-item reveal delay-200">
+                <div class="stat-number" data-target="98">0</div>
+                <div class="stat-label">Success Rate (%)</div>
+            </div>
+            <div class="stat-item reveal delay-300">
+                <div class="stat-number" data-target="15">0</div>
+                <div class="stat-label">Active Applications (k)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq section-padding">
+        <div class="container">
+            <div class="text-center reveal" style="max-width: 600px; margin: 0 auto 3rem auto;">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-container reveal delay-200" style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <h4>How do I check my eligibility?</h4>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Simply create an account and fill out our multi-step verification wizard. We'll instantly
+                            match your profile against our database to show you which scholarships you qualify for.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Is this platform free to use?</h4>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our core platform for students is completely free. We believe every student should have
+                            access to financial aid information without barriers.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Are the scholarships verified?</h4>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We source our data directly from official government portals (like NSP), trusted
+                            NGOs, and partnered corporate foundations. Every listing undergoes a strict verification
+                            process.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer"
+        style="background: white; padding: 4rem 0 2rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container grid grid-cols-4 md-grid-cols-2 gap-lg" style="margin-bottom: 3rem;">
+            <div>
+                <a href="index.html" class="logo flex items-center gap-sm" style="margin-bottom: 1rem;">
+                    <i class="ph ph-graduation-cap text-primary" style="font-size: 2rem;"></i>
+                    <span class="logo-text text-primary"
+                        style="font-family: var(--font-heading); font-weight: 700; font-size: 1.25rem;">Scholario</span>
+                </a>
+                <p style="font-size: 0.9rem;">Empowering students to achieve their dreams through accessible financial
+                    aid.</p>
+            </div>
+
+            <div>
+                <h4 style="margin-bottom: 1rem;">Quick Links</h4>
+                <ul style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <li><a href="scholarships.html" style="color: var(--text-secondary);">Browse Scholarships</a></li>
+                    <li><a href="eligibility.html" style="color: var(--text-secondary);">Check Eligibility</a></li>
+                    <li><a href="#faq" style="color: var(--text-secondary);">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="margin-bottom: 1rem;">Legal</h4>
+                <ul style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <li><a href="#" style="color: var(--text-secondary);">Privacy Policy</a></li>
+                    <li><a href="#" style="color: var(--text-secondary);">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="margin-bottom: 1rem;">Connect</h4>
+                <div class="flex gap-sm">
+                    <a href="#" class="icon-btn"
+                        style="padding: 0.5rem; background: var(--bg-main); border-radius: 50%; color: var(--text-primary);"><i
+                            class="ph ph-twitter-logo"></i></a>
+                    <a href="#" class="icon-btn"
+                        style="padding: 0.5rem; background: var(--bg-main); border-radius: 50%; color: var(--text-primary);"><i
+                            class="ph ph-linkedin-logo"></i></a>
+                    <a href="#" class="icon-btn"
+                        style="padding: 0.5rem; background: var(--bg-main); border-radius: 50%; color: var(--text-primary);"><i
+                            class="ph ph-facebook-logo"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center" style="border-top: 1px solid var(--border-color); padding-top: 2rem;">
+            <p style="font-size: 0.875rem;">&copy; 2026 Scholario. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

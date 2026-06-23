@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarships - Scholario</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/pages/dashboard.css">
+    <link rel="stylesheet" href="css/pages/scholarships.css">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="dashboard-body bg-main">
+
+    <!-- Sidebar -->
+    <aside class="sidebar glass-card">
+        <div class="sidebar-header">
+            <a href="index.html" class="logo flex items-center gap-sm">
+                <i class="ph ph-graduation-cap text-primary" style="font-size: 2rem;"></i>
+                <span class="logo-text text-primary" style="font-family: var(--font-heading); font-weight: 700; font-size: 1.25rem;">Scholario</span>
+            </a>
+            <button class="close-sidebar-btn md-hidden"><i class="ph ph-x"></i></button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="ph ph-squares-four"></i> Dashboard</a></li>
+                <li class="nav-item"><a href="eligibility.html" class="nav-link"><i class="ph ph-check-circle"></i> Eligibility Checker</a></li>
+                <li class="nav-item"><a href="scholarships.html" class="nav-link active"><i class="ph ph-magnifying-glass"></i> Scholarships</a></li>
+                <li class="nav-item"><a href="applications.html" class="nav-link"><i class="ph ph-file-text"></i> My Applications</a></li>
+                <li class="nav-item"><a href="profile.html" class="nav-link"><i class="ph ph-user"></i> Profile</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="logout()" class="nav-link text-danger"><i class="ph ph-sign-out"></i> Logout</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="topbar flex justify-between items-center glass-card">
+            <div class="flex items-center gap-md">
+                <button class="toggle-sidebar-btn"><i class="ph ph-list"></i></button>
+                <h2 style="font-size: 1.5rem; margin: 0;">Browse Scholarships</h2>
+            </div>
+            
+            <div class="topbar-actions flex items-center gap-md">
+                <div class="search-bar relative">
+                    <i class="ph ph-magnifying-glass absolute" style="left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+                    <input type="text" id="search-input" class="form-input" placeholder="Search by name or provider..." style="padding-left: 2.5rem; width: 300px; border-radius: 999px;">
+                </div>
+            </div>
+        </header>
+
+        <div class="content-padding" style="padding: 2rem;">
+            
+            <!-- Filters -->
+            <div class="filters-section card animate-fade-in-up delay-100" style="margin-bottom: 2rem; overflow: visible; position: relative; z-index: 50;">
+                <div class="tabs flex gap-sm overflow-x-auto" style="margin-bottom: 1.5rem; padding-bottom: 0.5rem;" id="category-tabs">
+                    <button class="tab-btn active" data-filter="all">All Scholarships</button>
+                    <button class="tab-btn" data-filter="government">Government</button>
+                    <button class="tab-btn" data-filter="ngo">NGO</button>
+                    <button class="tab-btn" data-filter="industry">Industry Sponsored</button>
+                    <button class="tab-btn" data-filter="university">University</button>
+                    <button class="tab-btn" data-filter="international">International</button>
+                </div>
+                
+                <div class="grid grid-cols-4 md-grid-cols-2 sm-grid-cols-1 gap-md filters-grid">
+                    <div class="custom-dropdown-container">
+                        <label class="form-label" style="font-size: 0.8rem; margin-bottom: 0.25rem;">State</label>
+                        <div class="custom-dropdown glass-card" id="state-dropdown" tabindex="0">
+                            <div class="dropdown-header">
+                                <span class="selected-text">All States</span>
+                                <i class="ph ph-caret-down"></i>
+                            </div>
+                            <div class="dropdown-list">
+                                <div class="dropdown-search">
+                                    <i class="ph ph-magnifying-glass"></i>
+                                    <input type="text" placeholder="Search State..." id="state-search">
+                                </div>
+                                <div class="dropdown-options" id="state-options">
+                                    <div class="dropdown-option active" data-value="all">All States</div>
+                                    <div class="dropdown-option" data-value="Andhra Pradesh">Andhra Pradesh</div>
+                                    <div class="dropdown-option" data-value="Delhi">Delhi</div>
+                                    <div class="dropdown-option" data-value="Karnataka">Karnataka</div>
+                                    <div class="dropdown-option" data-value="Maharashtra">Maharashtra</div>
+                                    <div class="dropdown-option" data-value="Tamil Nadu">Tamil Nadu</div>
+                                    <div class="dropdown-option" data-value="Telangana">Telangana</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="custom-dropdown-container">
+                        <label class="form-label" style="font-size: 0.8rem; margin-bottom: 0.25rem;">Amount Range</label>
+                        <div class="custom-dropdown glass-card" id="amount-dropdown" tabindex="0">
+                            <div class="dropdown-header">
+                                <span class="selected-text">Any Amount</span>
+                                <i class="ph ph-caret-down"></i>
+                            </div>
+                            <div class="dropdown-list">
+                                <div class="dropdown-options" id="amount-options">
+                                    <div class="dropdown-option active" data-value="all">Any Amount</div>
+                                    <div class="dropdown-option" data-value="low1">Up to ₹10,000</div>
+                                    <div class="dropdown-option" data-value="low2">₹10,000 – ₹25,000</div>
+                                    <div class="dropdown-option" data-value="mid1">₹25,000 – ₹50,000</div>
+                                    <div class="dropdown-option" data-value="mid2">₹50,000 – ₹1,00,000</div>
+                                    <div class="dropdown-option" data-value="high">₹1,00,000+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scholarship Grid -->
+            <div class="scholarships-grid grid grid-cols-3 md-grid-cols-2 sm-grid-cols-1 gap-lg" id="scholarships-container">
+                <!-- Injected via JS -->
+            </div>
+            
+            <div id="no-results" class="text-center animate-fade-in" style="display: none; padding: 4rem 0;">
+                <i class="ph-duotone ph-magnifying-glass text-muted" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+                <h3 style="color: var(--text-secondary);">No scholarships found</h3>
+                <p>Try adjusting your filters to find more results.</p>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Details Modal -->
+    <div class="modal-overlay" id="details-modal">
+        <div class="modal-content card glass-card">
+            <button class="modal-close" id="close-modal"><i class="ph ph-x"></i></button>
+            
+            <div class="modal-header" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color);">
+                <div class="badge badge-primary" id="modal-category" style="margin-bottom: 0.5rem; text-transform: capitalize;"></div>
+                <h2 id="modal-title"></h2>
+                <p id="modal-provider" style="margin: 0; color: var(--text-secondary);"></p>
+            </div>
+            
+            <div class="modal-body">
+                <div class="grid grid-cols-2 gap-md" style="margin-bottom: 2rem;">
+                    <div class="flex items-center gap-md" style="padding: 1.5rem; background: var(--bg-main); border-radius: 14px; border: 1px solid var(--border-color);">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(34, 197, 94, 0.1); display: flex; align-items: center; justify-content: center;">
+                            <i class="ph ph-currency-inr text-success" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <div>
+                            <span style="font-size: 0.85rem; color: var(--text-secondary); display: block; margin-bottom: 0.25rem;">Grant Amount</span>
+                            <strong id="modal-amount" style="font-size: 1.25rem; color: var(--text-primary);"></strong>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-md" style="padding: 1.5rem; background: var(--bg-main); border-radius: 14px; border: 1px solid var(--border-color);">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(245, 158, 11, 0.1); display: flex; align-items: center; justify-content: center;">
+                            <i class="ph ph-calendar text-warning" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <div>
+                            <span style="font-size: 0.85rem; color: var(--text-secondary); display: block; margin-bottom: 0.25rem;">Application Deadline</span>
+                            <strong id="modal-deadline" style="font-size: 1.1rem; color: var(--text-primary);"></strong>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="margin-bottom: 1rem; font-size: 1.1rem; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;"><i class="ph ph-check-square-offset text-primary"></i> Eligibility Criteria</h4>
+                    <p id="modal-eligibility" style="background: rgba(79, 70, 229, 0.05); padding: 1.25rem; border-left: 4px solid var(--primary); border-radius: 0 8px 8px 0; font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary);"></p>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 1rem; font-size: 1.1rem; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;"><i class="ph ph-files text-primary"></i> Required Documents</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                        <li style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-size: 0.95rem;"><i class="ph ph-check-circle text-success"></i> Aadhaar Card</li>
+                        <li style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-size: 0.95rem;"><i class="ph ph-check-circle text-success"></i> Income Certificate</li>
+                        <li style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-size: 0.95rem;"><i class="ph ph-check-circle text-success"></i> Previous Marksheet</li>
+                        <li style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-size: 0.95rem;"><i class="ph ph-check-circle text-success"></i> Bank Passbook</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="modal-footer flex justify-end gap-sm" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                <button class="btn btn-secondary" id="modal-cancel">Cancel</button>
+                <button class="btn btn-primary" onclick="alert('Application submitted successfully!')">Apply Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/pages/dashboard.js"></script>
+    <script src="js/pages/scholarships.js"></script>
+</body>
+</html>

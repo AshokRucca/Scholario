@@ -1,0 +1,227 @@
+/* Landing Page Specific Styles */
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Hero */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 8rem; /* Account for navbar */
+    overflow: hidden;
+}
+
+.hero-bg-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+}
+
+.shape-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--primary);
+    top: -200px;
+    right: -100px;
+    opacity: 0.4;
+}
+
+.shape-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--accent);
+    bottom: -100px;
+    left: -100px;
+    opacity: 0.3;
+}
+
+.shape-3 {
+    width: 300px;
+    height: 300px;
+    background: var(--secondary);
+    top: 30%;
+    left: 20%;
+    opacity: 0.2;
+}
+
+.hero-modern-bg {
+    background-color: #fafcff;
+    background-image: radial-gradient(rgba(79, 70, 229, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    position: relative;
+}
+.hero-modern-bg::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(250, 252, 255, 0) 0%, #fafcff 100%);
+    z-index: 0;
+}
+
+.floating-badge {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem !important;
+    font-weight: 600;
+    border-radius: 999px !important;
+}
+
+.badge-1 {
+    top: 20%;
+    right: -5%;
+}
+
+.badge-2 {
+    bottom: 20%;
+    left: -5%;
+}
+
+/* Features */
+.icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-lg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.features h3 {
+    margin-bottom: 0.75rem;
+}
+
+/* Stats */
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.125rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* FAQ */
+.faq-item {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background: var(--bg-card);
+    transition: background var(--transition-fast);
+}
+
+.faq-question:hover {
+    background: var(--bg-main);
+}
+
+.faq-question h4 {
+    margin: 0;
+    font-size: 1.125rem;
+}
+
+.faq-question i {
+    transition: transform var(--transition-normal);
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal), padding var(--transition-normal);
+}
+
+.faq-item.active .faq-answer {
+    padding: 1.5rem;
+    max-height: 300px; /* Arbitrary large number */
+    border-top: 1px solid var(--border-color);
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links, .nav-actions {
+        display: none; /* In a real app, this would be a toggle menu */
+    }
+    
+    .mobile-menu-btn {
+        display: block !important;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--text-primary);
+    }
+    
+    .hero {
+        padding-top: 6rem;
+        text-align: center;
+    }
+    
+    .hero-btns {
+        justify-content: center;
+    }
+    
+    .badge-1, .badge-2 {
+        display: none; /* Hide floating badges on mobile */
+    }
+}

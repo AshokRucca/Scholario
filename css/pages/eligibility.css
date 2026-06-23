@@ -1,0 +1,182 @@
+/* Eligibility Wizard Styles */
+
+.wizard-progress {
+    margin-bottom: 2rem;
+}
+
+.progress-steps {
+    width: 100%;
+}
+
+.progress-line {
+    position: absolute;
+    top: 20px; /* middle of circle */
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--border-color);
+    z-index: 1;
+    border-radius: 2px;
+}
+
+.progress-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--progress, 0%);
+    background: var(--primary);
+    transition: width var(--transition-normal);
+    border-radius: 2px;
+}
+
+.step {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+}
+
+.step-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    transition: all var(--transition-normal);
+}
+
+.step-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-align: center;
+    transition: color var(--transition-normal);
+}
+
+.step.active .step-circle {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
+}
+
+.step.active .step-label {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.step.completed .step-circle {
+    border-color: var(--primary);
+    background: white;
+    color: var(--primary);
+}
+
+/* Category Cards */
+.category-card {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.category-card:hover {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.05);
+}
+
+.category-card input[type="radio"] {
+    margin-right: 1rem;
+    accent-color: var(--primary);
+}
+
+.category-card:has(input:checked) {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.05);
+}
+
+/* Upload Zone */
+.upload-zone {
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 2rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+}
+
+.upload-zone:hover {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.05);
+}
+
+.upload-zone i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.upload-zone span {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.upload-zone.has-file {
+    border-color: var(--success);
+    background: rgba(34, 197, 94, 0.05);
+}
+
+.upload-zone.has-file i {
+    color: var(--success);
+}
+
+/* Result Cards */
+.result-card {
+    text-align: center;
+    padding: var(--spacing-2xl);
+}
+
+.result-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.icon-success { background: rgba(34, 197, 94, 0.1); color: var(--success); }
+.icon-danger { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+
+.scholarship-match-list {
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.match-item {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up - Scholario</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/pages/auth.css">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="auth-body">
+
+    <div class="auth-container">
+        <!-- Auth Left: Forms -->
+        <div class="auth-left">
+            <div class="auth-header">
+                <a href="index.html" class="logo flex items-center gap-sm" style="margin-bottom: 2rem;">
+                    <i class="ph ph-graduation-cap text-primary" style="font-size: 2rem;"></i>
+                    <span class="logo-text text-primary" style="font-family: var(--font-heading); font-weight: 700; font-size: 1.25rem;">Scholario</span>
+                </a>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login-form-container" class="form-wrapper active animate-fade-in">
+                <h2>Welcome Back</h2>
+                <p>Please enter your details to sign in.</p>
+                
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <div class="input-with-icon">
+                            <i class="ph ph-envelope"></i>
+                            <input type="email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <div class="input-with-icon">
+                            <i class="ph ph-lock-key"></i>
+                            <input type="password" class="form-input pwd-input" placeholder="••••••••" required>
+                            <i class="ph ph-eye pwd-toggle" style="cursor: pointer;"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-options flex justify-between items-center" style="margin-bottom: 1.5rem;">
+                        <label class="flex items-center gap-sm" style="font-size: 0.9rem; color: var(--text-secondary); cursor: pointer;">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" style="font-size: 0.9rem;">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                </form>
+                
+                <div class="auth-switch text-center" style="margin-top: 2rem;">
+                    <p>Don't have an account? <a href="#" id="show-signup" class="font-semibold">Sign up</a></p>
+                </div>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div id="signup-form-container" class="form-wrapper animate-fade-in" style="display: none;">
+                <h2>Create Account</h2>
+                <p>Start your scholarship journey today.</p>
+                
+                <form id="signup-form" class="auth-form">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <div class="input-with-icon">
+                            <i class="ph ph-user"></i>
+                            <input type="text" id="signup-name" class="form-input" placeholder="John Doe" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <div class="input-with-icon">
+                            <i class="ph ph-envelope"></i>
+                            <input type="email" id="signup-email" class="form-input" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Mobile Number</label>
+                        <div class="input-with-icon">
+                            <i class="ph ph-device-mobile"></i>
+                            <input type="tel" id="signup-mobile" class="form-input" placeholder="+91 9876543210" pattern="[0-9]{10}" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <div class="input-with-icon">
+                            <i class="ph ph-lock-key"></i>
+                            <input type="password" id="signup-pwd" class="form-input pwd-input" placeholder="••••••••" required>
+                            <i class="ph ph-eye pwd-toggle" style="cursor: pointer;"></i>
+                        </div>
+                        <div class="pwd-strength" style="margin-top: 0.5rem; height: 4px; border-radius: 2px; background: #eee; display: none;">
+                            <div class="pwd-strength-bar" style="height: 100%; width: 0; border-radius: 2px; transition: 0.3s;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password</label>
+                        <div class="input-with-icon">
+                            <i class="ph ph-lock-key"></i>
+                            <input type="password" id="signup-confirm-pwd" class="form-input pwd-input" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+                </form>
+                
+                <div class="auth-switch text-center" style="margin-top: 2rem;">
+                    <p>Already have an account? <a href="#" id="show-login" class="font-semibold">Sign in</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Auth Right: Visual -->
+        <div class="auth-right">
+            <div class="auth-visual-content">
+                <div class="glass-card" style="max-width: 400px; text-align: center;">
+                    <i class="ph-duotone ph-rocket text-primary" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">Unlock Your Potential</h3>
+                    <p style="color: var(--text-secondary);">Join thousands of students who have successfully funded their education through our platform.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/pages/auth.js"></script>
+</body>
+</html>
