@@ -241,17 +241,10 @@ Submit your Pull Request and describe the changes clearly.
 
 ---
 
-## 📜 License
-
-This project is licensed under the MIT License.
-
-Feel free to use, modify, and distribute this project for educational and personal purposes.
-
----
 
 ## 👨‍💻 Author
 
-**Ashok Rucca**
+**Kollam Ashok**
 
 📧 Connect with me on LinkedIn and GitHub to collaborate on innovative educational technology solutions.
 
